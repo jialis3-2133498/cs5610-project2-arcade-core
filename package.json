@@ -9,5 +9,9 @@
     "test": "node --test"
   },
   "keywords": ["2048", "game", "arcade"],
-  "license": "ISC"
+  "license": "ISC",
+  "files": [
+    "src/",
+    "CHANGELOG.md"
+  ]
 }
