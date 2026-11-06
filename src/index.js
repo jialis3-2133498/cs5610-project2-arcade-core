@@ -85,3 +85,43 @@ export function move(board, direction) {
             throw new RangeError("Invalid Direction");  
     }
 }
+
+export function canMove(board, direction) {
+    const boardAfterMove = move(board, direction);
+    if (JSON.stringify(board) === JSON.stringify(boardAfterMove)) {
+        return false;
+    } else {
+        return true;
+    }
+
+}
+
+export function hasMoves(board) {
+    const directions = ["left", "right", "up", "down"];
+    for (const direction of directions) {
+        if (canMove(board, direction)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+export function spawn(board, rng = Math.random) {
+    const newBoard = board.map(row => [...row]);
+    const emptyCells = [];
+    for (let rowIndex = 0; rowIndex < board.length; rowIndex++) {
+        for (let colIndex = 0; colIndex < board[rowIndex].length; colIndex++) {
+            if (board[rowIndex][colIndex] === 0) {
+                emptyCells.push([rowIndex, colIndex]);
+            }
+        }
+    }
+    if (emptyCells.length === 0) {
+        return newBoard;
+    }
+    const randomIndex = Math.floor(rng() * emptyCells.length);
+    const [rowIndex, colIndex] = emptyCells[randomIndex];
+    const tileValue = rng() < 0.9 ? 2 : 4;
+    newBoard[rowIndex][colIndex] = tileValue;
+    return newBoard;
+}
