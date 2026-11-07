@@ -1,6 +1,19 @@
 # Changelog
 All notable changes to this package will be documented in this file.
 
+## [0.1.1] - 2026-11-06
+
+### Added
+- Added `moveWithScore(board, direction)` to return the updated board
+  and points earned from merges.
+- Added unit tests for scoring, merge behavior, immutability, and
+  invalid directions.
+
+### Changed
+- Refactored `move()` to reuse `moveWithScore()` while preserving
+  its original return type.
+- Removed redundant movement helper functions.
+
 ## [0.1.0] - Initial Release
 ### Added
 * Implemented move(board, direction) to slide and merge tiles in all four directions.

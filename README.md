@@ -50,6 +50,37 @@ Checks whether moving the tiles in the specified direction would change the boar
 ### `hasMoves(board)`
 Checks whether at least one valid move remains in any of the four directions. It returns `true` if a valid move exists and `false` if no moves are possible.
 
+### `moveWithScore(board, direction)`
+
+Moves all tiles in the specified direction and calculates the score
+earned from merging tiles.
+
+**Parameters:**
+- `board`: A two-dimensional array representing the game board.
+- `direction`: One of `"left"`, `"right"`, `"up"`, or `"down"`.
+
+**Returns:**
+An object containing:
+- `board`: The updated board after the move.
+- `score`: The points earned from merges during this move.
+
+**Example:**
+
+```javascript
+import { moveWithScore } from "@jialisheng/arcade-core";
+
+const board = [
+    [2, 2, 0, 0],
+    [4, 4, 0, 0],
+    [0, 0, 0, 0],
+    [0, 0, 0, 0]
+];
+
+const result = moveWithScore(board, "left");
+
+console.log(result.score); // 12
+```
+
 
 ## Testing
 Run the unit tests using Node.js:
