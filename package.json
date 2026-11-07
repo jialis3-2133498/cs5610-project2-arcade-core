@@ -1,6 +1,6 @@
 {
   "name": "@jialisheng/arcade-core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Core game logic for a 2048 arcade game",
   "type": "module",
   "main": "./src/index.js",
@@ -8,7 +8,11 @@
   "scripts": {
     "test": "node --test"
   },
-  "keywords": ["2048", "game", "arcade"],
+  "keywords": [
+    "2048",
+    "game",
+    "arcade"
+  ],
   "license": "ISC",
   "files": [
     "src/",
