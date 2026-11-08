@@ -22,10 +22,10 @@ npm install @jialisheng/arcade-core
 import { move, spawn, canMove, hasMoves } from "@jialisheng/arcade-core";
 
 const board = [
-    [2, 0, 2, 4],
-    [0, 4, 4, 0],
-    [2, 2, 2, 2],
-    [0, 0, 0, 0]
+  [2, 0, 2, 4],
+  [0, 4, 4, 0],
+  [2, 2, 2, 2],
+  [0, 0, 0, 0],
 ];
 
 const newBoard = move(board, "left");
@@ -37,11 +37,11 @@ Expected output:
 
 ```javascript
 [
-    [4, 4, 0, 0],
-    [8, 0, 0, 0],
-    [4, 4, 0, 0],
-    [0, 0, 0, 0]
-]
+  [4, 4, 0, 0],
+  [8, 0, 0, 0],
+  [4, 4, 0, 0],
+  [0, 0, 0, 0],
+];
 ```
 
 ## API Reference
@@ -100,10 +100,10 @@ An object containing:
 import { moveWithScore } from "@jialisheng/arcade-core";
 
 const board = [
-    [2, 2, 0, 0],
-    [4, 4, 0, 0],
-    [0, 0, 0, 0],
-    [0, 0, 0, 0]
+  [2, 2, 0, 0],
+  [4, 4, 0, 0],
+  [0, 0, 0, 0],
+  [0, 0, 0, 0],
 ];
 
 const result = moveWithScore(board, "left");
