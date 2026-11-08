@@ -133,7 +133,7 @@ The unit tests cover directional movement, tile merging, move validation, and ed
 
 The package is published on npm as [@jialisheng/arcade-core](https://www.npmjs.com/package/@jialisheng/arcade-core).
 
-The current published version used by the Arcade application is `0.1.1`.
+The current published version used by the Arcade application is `0.1.2`.
 
 See [CHANGELOG.md](CHANGELOG.md) for version history.
 
