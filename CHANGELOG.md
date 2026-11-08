@@ -1,6 +1,16 @@
 # Changelog
 All notable changes to this package will be documented in this file.
 
+## [0.1.2] - 2026-11-07
+
+### Documentation
+- Updated README with complete API documentation for all five exported functions.
+- Added usage examples, version information, and links to the Arcade application.
+- Clarified the behavior of `moveWithScore()`, including score calculation and board immutability.
+
+### Notes
+- No changes to the package's functionality or public API.
+
 ## [0.1.1] - 2026-11-06
 
 ### Added
