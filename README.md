@@ -1,29 +1,40 @@
 # @jialisheng/arcade-core
-A lightweight JavaScript package that provides the core game logic for 2048.
+
+A lightweight JavaScript package that provides the core game logic for the 2048 game.
 
 ## Description
-This package exports four functions: `move()`, `spawn()`, `canMove()`, and `hasMoves()`, which handle tile movement, random tile generation, and move validation.
+
+This package exports five functions: `move()`, `spawn()`, `canMove()`, `hasMoves()`, and `moveWithScore()`. These functions handle tile movement, merging, random tile generation, move validation, and score calculation.
 
 The package is independent of UI frameworks and can run in a Node.js environment.
 
 ## Installation
+
 Install the package using npm:
+
 ```bash
 npm install @jialisheng/arcade-core
 ```
+
 ## Usage
+
 ```javascript
 import { move, spawn, canMove, hasMoves } from "@jialisheng/arcade-core";
+
 const board = [
     [2, 0, 2, 4],
     [0, 4, 4, 0],
     [2, 2, 2, 2],
     [0, 0, 0, 0]
 ];
+
 const newBoard = move(board, "left");
+
 console.log(newBoard);
 ```
+
 Expected output:
+
 ```javascript
 [
     [4, 4, 0, 0],
@@ -32,35 +43,54 @@ Expected output:
     [0, 0, 0, 0]
 ]
 ```
+
 ## API Reference
+
 ### `move(board, direction)`
-Slides and merges tiles on the board in the specified direction. It returns a new board without modifying the original board. This function does not spawn a new tile; use `spawn()` separately after a valid move.
+
+Slides and merges tiles on the board in the specified direction. It returns a new board without modifying the original board.
+
+This function does not spawn a new tile; use `spawn()` separately after a valid move.
 
 The `direction` parameter accepts four possible values: `"left"`, `"right"`, `"up"`, and `"down"`.
 
 ### `spawn(board, rng)`
-Randomly selects an empty cell and generates a new tile with a value of either 2 or 4. There is a 90% probability of generating a 2 and a 10% probability of generating a 4. It returns a new board without modifying the original board.
 
-The `rng` parameter is optional and defaults to `Math.random`. The `rng` parameter must be a function that returns a number between 0 (inclusive) and 1 (exclusive). If no empty cells are available, the function returns a new board with the same contents.
+Randomly selects an empty cell and generates a new tile with a value of either 2 or 4. There is a 90% probability of generating a 2 and a 10% probability of generating a 4.
 
+It returns a new board without modifying the original board.
+
+The `rng` parameter is optional and defaults to `Math.random`. It must be a function that returns a number between 0 (inclusive) and 1 (exclusive).
+
+If no empty cells are available, the function returns a new board with the same contents.
 
 ### `canMove(board, direction)`
-Checks whether moving the tiles in the specified direction would change the board. It returns `true` if the move is possible and `false` otherwise.
+
+Checks whether moving the tiles in the specified direction would change the board.
+
+It returns `true` if the move is possible and `false` otherwise.
 
 ### `hasMoves(board)`
-Checks whether at least one valid move remains in any of the four directions. It returns `true` if a valid move exists and `false` if no moves are possible.
+
+Checks whether at least one valid move remains in any of the four directions.
+
+It returns `true` if a valid move exists and `false` if no moves are possible.
 
 ### `moveWithScore(board, direction)`
 
-Moves all tiles in the specified direction and calculates the score
-earned from merging tiles.
+Slides and merges tiles in the specified direction and calculates the score earned from merging tiles.
+
+It returns a new board without modifying the original board. Like `move()`, this function does not spawn a new tile.
 
 **Parameters:**
+
 - `board`: A two-dimensional array representing the game board.
 - `direction`: One of `"left"`, `"right"`, `"up"`, or `"down"`.
 
 **Returns:**
+
 An object containing:
+
 - `board`: The updated board after the move.
 - `score`: The points earned from merges during this move.
 
@@ -78,13 +108,45 @@ const board = [
 
 const result = moveWithScore(board, "left");
 
+console.log(result.board);
+// [
+//     [4, 0, 0, 0],
+//     [8, 0, 0, 0],
+//     [0, 0, 0, 0],
+//     [0, 0, 0, 0]
+// ]
+
 console.log(result.score); // 12
 ```
 
-
 ## Testing
+
 Run the unit tests using Node.js:
 
 ```bash
 npm test
 ```
+
+The unit tests cover directional movement, tile merging, move validation, and edge cases. They also verify that the original board is not modified by movement operations.
+
+## Version Information
+
+The package is published on npm as [@jialisheng/arcade-core](https://www.npmjs.com/package/@jialisheng/arcade-core).
+
+The current published version used by the Arcade application is `0.1.1`.
+
+See [CHANGELOG.md](CHANGELOG.md) for version history.
+
+## Related Project
+
+This package is used by [Jiali Sheng's Arcade](https://github.com/jialis3-2133498/cs5610-project2-arcade), a Svelte 5 application featuring 2048 and a mini crossword puzzle.
+
+**Live Website:** [Jiali Sheng's Arcade](https://jialis3-2133498.github.io/cs5610-project2-arcade/)
+
+## Author
+
+Jiali Sheng
+
+CS5610 — Web Development, Fall 2026
+
+Northeastern University
